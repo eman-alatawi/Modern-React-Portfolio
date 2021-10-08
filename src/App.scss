@@ -1,0 +1,489 @@
+@import url("https://fonts.googleapis.com/css2?family=Rajdhani:wght@500&display=swap");
+
+$background-color: rgb(242, 236, 249);
+$dark-purple: rgb(54, 5, 99);
+$light-purple: rgb(224, 201, 245);
+$cyne: rgb(84, 193, 240);
+$pink: rgba(228, 84, 175, 0.644);
+$dark-pink: rgb(228, 84, 175);
+$height: 100vh;
+$width: 100vw;
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: $background-color !important;
+  font-family: "Rajdhani", sans-serif !important;
+}
+
+@mixin flexContent($direction, $justify) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: center;
+}
+
+@mixin header-section($section-height, $nav-link-size, $dir, $justify) {
+  .header {
+    height: $section-height;
+
+    .navBar {
+      .nav-link {
+        font-size: $nav-link-size;
+      }
+    }
+
+    .banner {
+      @include flexContent($dir, $justify);
+    }
+  }
+}
+
+@mixin about-section($section-height) {
+  .about-section {
+    height: $section-height;
+
+    .about-section-container {
+      @include flexContent(column, space-evenly);
+    }
+
+    .about-pictures-container {
+      margin: 1rem;
+
+      .row {
+        .fas {
+          font-size: 2rem;
+        }
+      }
+    }
+  }
+}
+
+@mixin projects-section($section-height,$striped-boxHeight, $card-header, $card-title, $card-text) {
+  .projects-section {
+    height: $section-height;
+
+    .projects-section-container {
+      @include flexContent(column, space-between);
+
+      .striped-Box {
+        .container-fluid {
+          width: 100%;
+          padding: 0;
+          height: $striped-boxHeight;
+
+          .card {
+            font-size: $card-text;
+          }
+
+          .card h3 {
+            font-size: $card-title;
+          }
+        }
+      }
+    }
+  }
+}
+
+@mixin contanct-section($section-width,$section-height,$header-size, $placeholder-size, $button-size) {
+    .contanct-section{
+        @include flexContent(column, space-between);
+        .form-container {
+            width: $section-width;
+            height: $section-height;
+
+            h2{
+                font-size: $header-size;
+            }
+            form {
+                
+                input,
+                textarea {
+                 
+          
+                  &::placeholder {
+                    font-size: $placeholder-size;
+                  }
+                }
+                .form-footer {
+                    button{
+                        font-size:  $button-size;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@mixin x-small-devices {
+  @include header-section(90vh, large, column, space-around);
+  @include about-section(170vh);
+  @include projects-section(110vh,45vh, larger, large, small);
+  @include contanct-section(100%, 50%,large, medium, medium);
+}
+
+@mixin small-devices {
+  @include header-section($height, larger, row, space-around);
+  @include about-section(130vh);
+  @include projects-section(130vh,60vh, x-large, large, large);
+  @include contanct-section(100%, 80%, x-large, large, large);
+}
+
+@mixin medium-devices {
+  .header {
+    height: 100vh;
+
+    .navBar {
+      .nav-link {
+        font-size: x-large;
+      }
+    }
+  }
+
+  .about-section {
+    .about-paragraph {
+      width: 80vw;
+    }
+  }
+  @include projects-section(160vh,60vh, x-large, large, large);
+  @include contanct-section(100%, 100%, xx-large, large,large);
+
+}
+
+// styles for devices with => 1024px
+
+#btnScrollToUp {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  width: 3.125rem;
+  height: 3.125rem;
+  border-radius: 50%;
+  background-color: $cyne;
+  border: none;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+  color: whitesmoke;
+  outline: none;
+  cursor: pointer;
+  z-index: 3;
+
+  &:active {
+    background-color: rgb(54, 157, 201);
+  }
+}
+
+.header {
+  @include flexContent(column, space-around);
+  height: $height;
+  width: $width;
+  background-color: $dark-purple;
+  padding: 1rem 2rem;
+  text-align: left;
+
+  .navBar {
+    width: $width;
+
+    button.navbar-toggler {
+      color: $pink;
+      background-color: $cyne;
+    }
+
+    .nav-link,
+    .navbar-brand {
+      margin-right: 1.5rem;
+
+      &:hover {
+        color: $cyne !important;
+      }
+    }
+
+    .nav-link {
+      color: $light-purple !important;
+      font-size: x-large;
+    }
+
+    .navbar-brand {
+      color: $pink !important;
+      font-size: xx-large;
+    }
+  }
+
+  .banner {
+    @include flexContent(row, space-evenly);
+    color: $light-purple;
+
+    button {
+      border: 0;
+      background-color: $cyne;
+      border-radius: 3rem;
+      padding: 0.5rem 1rem;
+      color: whitesmoke;
+      position: relative;
+      right: -6rem;
+
+      &:hover {
+        background-color: $pink;
+        color: $light-purple;
+      }
+    }
+
+    .Str {
+      font-size: xx-large;
+      color: $cyne;
+
+      span {
+        padding: 2rem;
+        color: $light-purple;
+        background-color: $pink;
+        border-radius: 100%;
+      }
+    }
+
+    sup {
+      color: $pink;
+    }
+  }
+}
+
+.about-section {
+  @include flexContent(column, space-around);
+
+  .about-paragraph {
+    width: 60vw;
+    text-align: justify;
+  }
+
+  .about-section-container {
+    @include flexContent(row, space-around);
+  }
+
+  .about-pictures-container {
+    box-shadow: 0 4.6px 4.9px rgba(0, 0, 0, 0.02),
+      0 15.4px 16.3px rgba(0, 0, 0, 0.03), 0 69px 73px rgba(0, 0, 0, 0.05);
+
+    .row {
+      .top-left {
+        background-color: $dark-purple;
+
+        .fas {
+          color: $light-purple;
+        }
+
+        h5 {
+          color: $light-purple;
+        }
+      }
+
+      .bottom-right {
+        background-color: $pink;
+      }
+
+      .top-right {
+        background-color: $cyne;
+      }
+
+      .bottom-left {
+        background-color: $light-purple;
+      }
+
+      .top-right,
+      .bottom-left,
+      .bottom-right {
+        .fas {
+          color: $dark-purple;
+        }
+
+        h5 {
+          color: $dark-purple;
+        }
+      }
+
+      .fas {
+        font-size: 3rem;
+      }
+
+      .col {
+        padding: 2rem;
+      }
+    }
+  }
+}
+
+.projects-section {
+  height: 90vh;
+  background-color: $dark-purple;
+  @include flexContent(column, center);
+  padding: 2rem;
+
+  .projects-section-container {
+    @include flexContent(row, space-evenly);
+
+    .image-Box {
+      padding: 1rem;
+
+      img {
+        box-shadow: 29px 35px 0px -2px $dark-pink;
+        -webkit-box-shadow: 29px 35px 0px -2px $dark-pink;
+        -moz-box-shadow: 29px 35px 0px -2px $dark-pink;
+        z-index: 1;
+      }
+    }
+
+    .striped-Box {
+      padding: 1rem;
+      background: repeating-linear-gradient(
+        -55deg,
+        transparent,
+        transparent 20px,
+        $pink 40px,
+        $pink 40px
+      );
+
+      .container-fluid {
+        width: 45vw;
+        height: 80vh;
+        overflow-y: scroll;
+        background-color: $dark-purple;
+        padding: 1rem;
+        z-index: 2;
+
+        .card-header-container  {
+          width: 100%;
+          text-align: center;
+          color: $light-purple;
+        }
+
+        .carouselItem{
+
+        //   .carousel.slide {
+        //     height: 30vh !important;
+
+        //     .carousel-inner {
+        //       height: 30vh;
+        //   }
+        // }
+            
+            .card {
+                margin: 1rem;
+                background: transparent;
+                color: $light-purple;
+                border: 0;
+             
+              position: absolute;
+              padding-top: 30vh;
+              background: linear-gradient(to top, rgba(0, 0, 0, 0.85), transparent);
+              }
+        }
+        
+      }
+    }
+  }
+}
+
+.contanct-section {
+  @include flexContent(row, space-between);
+
+  .form-container {
+    background-color: $light-purple;
+    width: 40vw;
+    height: 50vh;
+    padding: 3rem;
+    border-radius: 1.5rem;
+    box-shadow: 0 4.6px 4.9px rgba(0, 0, 0, 0.02),
+      0 15.4px 16.3px rgba(0, 0, 0, 0.03), 0 69px 73px rgba(0, 0, 0, 0.05);
+
+    @include flexContent(column, space-evenly);
+
+    h2 {
+      color: $dark-purple;
+    }
+
+    form {
+      .form-control:focus {
+        border-color: $dark-pink;
+        box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px $dark-pink;
+      }
+
+      .form-footer {
+        @include flexContent(row, center);
+
+        width: 100%;
+
+        button {
+          border: 0;
+          width: 10rem;
+          background-color: $dark-pink;
+
+          border-radius: 3rem;
+          padding: 0.5rem 1rem;
+          color: whitesmoke;
+
+          &:hover {
+            background-color: $cyne;
+            color: $dark-purple;
+          }
+        }
+      }
+
+      textarea {
+        resize: none;
+      }
+
+      input,
+      textarea {
+        background-color: transparent;
+        border: none;
+        border-bottom: 1px solid $dark-purple;
+
+
+        &::placeholder {
+          color: $dark-pink;
+        }
+      }
+    }
+  }
+}
+
+// Footer.js
+.footer {
+  @include flexContent(row, center);
+  background-color: $dark-purple;
+  color: $light-purple;
+  padding: 2rem;
+
+  .footerContainer {
+    @include flexContent(column, center);
+    height: 10vh;
+  }
+
+  .iconsContainer {
+    @include flexContent(row, space-evenly);
+
+    .icon {
+      color: $light-purple;
+      font-size: 2rem;
+    }
+  }
+
+  @media (max-width: 575.98px) {
+    font-size: smaller;
+  }
+
+  @media (min-width: 576px) and (max-width: 767.98px) {
+    font-size: smaller;
+  }
+}
+
+@media (max-width: 480px) {
+  @include x-small-devices();
+}
+
+@media (min-width: 480px) and (max-width: 768px) {
+  @include small-devices();
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  @include medium-devices();
+}
