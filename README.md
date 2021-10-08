@@ -13,4 +13,4 @@
 
 ### Website Screenshot:
 
-![Website Screenshot](https://drive.google.com/uc?export=view&id=1HpKw1qhbe9gzKxWscB5fUS0mehqQ38Cv)
+![Website Screenshot](https://drive.google.com/uc?export=view&id=1naXOaHkvV2oDnAdL4dQ_8fHiL32w5XMW)
