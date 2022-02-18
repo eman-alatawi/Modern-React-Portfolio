@@ -23,7 +23,7 @@ export default function About() {
 
       <div className="about-section-container">
         <Skills />
-        <img src={img} width="35%" />
+        <img src={img} width="35%" alt="" />
       </div>
     </div>
   );

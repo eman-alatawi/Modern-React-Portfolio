@@ -9,7 +9,7 @@ export default function Projects() {
         <div className="projects-section-container">
           <div className="image-Box">
             <a href="https://www.freepik.com/free-photos-vectors/technology">
-              <img src={img} width="95%" />
+              <img src={img} width="95%" alt=""/>
             </a>
           </div>
 

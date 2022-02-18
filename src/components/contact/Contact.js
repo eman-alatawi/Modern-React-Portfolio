@@ -24,7 +24,7 @@ export default function Contact() {
                 </form>
             </div>
 
-            <img src={img} width="55%" />
+            <img src={img} width="55%" alt="" />
         </div>
     )
 }
