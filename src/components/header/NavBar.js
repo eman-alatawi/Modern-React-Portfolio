@@ -4,7 +4,7 @@ export default function NavBar() {
     return (
         <nav className="navbar navbar-expand-lg navbar-light fixed-top p-4 navBar">
             <div className="container-fluid">
-                Your Name/Logo
+                <a className="navbar-brand" href="#">Your Name/Logo</a>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
                     aria-label="Toggle navigation">
